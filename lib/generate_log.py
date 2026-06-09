@@ -2,29 +2,22 @@ from datetime import datetime
 import os
 import requests 
 
-def generate_log(data):
-    # TODO: Implement log generation logic
-
+def generate_log(log_data):
     # STEP 1: Validate input
-    # Hint: Check if data is a list
+    # Fix: Changed parameter to log_data so this check works correctly
     if not isinstance(log_data, list):
         raise ValueError("Input data must be of type 'list'.")
 
-    # STEP 2: Generate a filename with today's date (e.g., "log_20250408.txt")
-    # Hint: Use datetime.now().strftime("%Y%m%d")
+    # STEP 2: Generate a filename with today's date (e.g., "log_20260610.txt")
     current_date = datetime.now().strftime("%Y%m%d")
     filename = f"log_{current_date}.txt"
 
     # STEP 3: Write the log entries to a file using File I/O
-    # Use a with open() block and write each line from the data list
-    # Example: file.write(f"{entry}\n")
     with open(filename, "w") as file:
         for entry in log_data:
-            # Adding line breaks cleanly
             file.write(f"{entry}\n")
 
     # STEP 4: Print a confirmation message with the filename
-
     print(f"Log written to {filename}")
 
 def fetch_data():
@@ -42,7 +35,7 @@ if __name__ == "__main__":
     post = fetch_data()
     post_title = post.get("title", "No title found")
     
-    # Build out  log list array
+    # Build out log list array
     sample_logs = [
         "User logged in", 
         "User updated profile", 
