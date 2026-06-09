@@ -42,7 +42,7 @@ if __name__ == "__main__":
     post = fetch_data()
     post_title = post.get("title", "No title found")
     
-    # Build out your log list array
+    # Build out  log list array
     sample_logs = [
         "User logged in", 
         "User updated profile", 
